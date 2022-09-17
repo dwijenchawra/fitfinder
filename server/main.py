@@ -237,3 +237,4 @@ def create_reference_image(
     print('Reference image uri: {}'.format(image.uri))
 
 
+create_product_set("neat-dynamo-362802", "us-west-a")
