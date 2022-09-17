@@ -12,7 +12,7 @@ def process_image():
 
 @app.route('/', methods=['GET'])
 def test():
-    return jsonify("suck my dick")
+    return jsonify("hello")
 
 
 
