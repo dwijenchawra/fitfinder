@@ -1,7 +1,5 @@
 from flask import Flask, request, jsonify
-import cv2
 import numpy as np
-import logging
 
 app = Flask(__name__)
 
