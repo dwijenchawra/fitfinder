@@ -43,19 +43,19 @@ This example returns a tag (key word) for each thing in the image.
 '''
 print("===== Tag an image - remote =====")
 # Call API with remote image
-tags_result_remote = computervision_client.tag_image(remote_image_url)
+# tags_result_remote = computervision_client.tag_image(remote_image_url)
 analyze_result = computervision_client.analyze_image(remote_image_url)
 
-# Print results with confidence score
-print("Tags in the remote image: ")
-if (len(tags_result_remote.tags) == 0):
-    print("No tags detected.")
-else:
-    for tag in tags_result_remote.tags:
-        print("'{}' with confidence {:.2f}%".format(
-            tag.name, tag.confidence * 100))
-print()
-'''
-END - Tag an Image - remote
-'''
-print("End of Computer Vision quickstart.")
+# # Print results with confidence score
+# print("Tags in the remote image: ")
+# if (len(tags_result_remote.tags) == 0):
+#     print("No tags detected.")
+# else:
+#     for tag in tags_result_remote.tags:
+#         print("'{}' with confidence {:.2f}%".format(
+#             tag.name, tag.confidence * 100))
+# print()
+# '''
+# END - Tag an Image - remote
+# '''
+# print("End of Computer Vision quickstart.")
