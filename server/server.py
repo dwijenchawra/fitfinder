@@ -1,3 +1,4 @@
+from random import shuffle
 import uuid
 from flask import Flask, request, jsonify
 from PIL import Image
@@ -104,6 +105,13 @@ def testRoute():
     print(request.json['info'])
     return jsonify("hello")
 
+
+def compareTwoClothes():
+    response = dynamo_client.Table('helloworld').scan()
+    shuffle(response['Items'])
+    for i in response['Items'][0:2]:
+        print(i)
+    
 
 
 
