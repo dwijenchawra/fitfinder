@@ -7,12 +7,31 @@ import boto3
 import os
 from colorthief import ColorThief
 import webcolors
+import numpy as np
+import pandas as pd 
+import matplotlib.pyplot as plt
+import tensorflow as tf
+
+model = tf.keras.models.load_model('mobilenet.h5')
+classes = ['Blazer', 'Body', 'Dress', 'Hat', 'Hoodie', 'Longsleeve', 'Outwear',
+ 'Pants', 'Polo', 'Shirt', 'Shoes', 'Shorts', 'Skirt', 'T-Shirt', 'Top', 'Undershirt']
+
 
 app = Flask(__name__)
 s3_client = boto3.client('s3')
 dynamo_client = boto3.client('dynamodb', region_name='us-east-1')
 
 
+def predict_image(path):
+    image = tf.keras.preprocessing.image.load_img(path, target_size=(224, 224))
+    input_arr = tf.keras.preprocessing.image.img_to_array(image)
+    input_arr = np.array([input_arr])
+    input_arr = input_arr.astype('float32') / 255.
+    predictions = model.predict(input_arr, verbose=0)
+    predicted_classes = np.argsort(predictions)
+    predictions.sort()
+    print(classes[predicted_classes[0][-1]])
+    return classes[predicted_classes[0][-1]]
 
 def closest_colour(requested_colour):
     min_colours = {}
@@ -44,7 +63,7 @@ def upload_image(file_name):
     #RUN COLOR DETECTION
 
     dominantColor = getDominantColor("output.jpeg")
-    mlCategory = "shirt"
+    mlCategory = predict_image("output.jpeg")
     imID = str(uuid.uuid4())
     print(imID)
 
