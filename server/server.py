@@ -32,7 +32,7 @@ def upload_image(file_name):
 
     try:
         response = s3_client.upload_file(file_name, "helloworld9938", imID)
-        response = dynamo_client.put_item(toBeSent)
+        response = dynamo_client.put_item(Item=toBeSent)
     except ClientError as e:
         logging.error(e)
         return False
