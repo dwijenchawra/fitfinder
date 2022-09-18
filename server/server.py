@@ -21,7 +21,7 @@ def upload_image(file_name, object_name=None):
     
 
 def download_image(object_name, file_name):
-    s3_client.download_file('helloworld9938', object_name, file_name)
+    response = s3_client.download_file('helloworld9938', object_name, file_name)
 
 
 @app.route('/process', methods=['POST'])
