@@ -13,7 +13,7 @@ import time
 Authenticate
 Authenticates your credentials and creates a client.
 '''
-subscription_key = "4986679743dc496bb04a5e117fc5e702"
+subscription_key = "------"
 endpoint = "https://helloworldcv.cognitiveservices.azure.com/"
 
 computervision_client = ComputerVisionClient(
