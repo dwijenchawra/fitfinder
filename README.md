@@ -1,5 +1,7 @@
 # FitFinder
 
+### Won Best Use of AWS at Purdue Hello World 2022
+
 ![gallery](https://user-images.githubusercontent.com/30065475/210120322-6d63bf88-c449-4fc5-b7d3-1f3ffae0b6f6.jpg)
 
 ## Inspiration
